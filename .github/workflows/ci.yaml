@@ -31,3 +31,9 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           env_vars: OS, NODE_VERSION
+      - name: Upload coverage to Qlty
+        uses: qltysh/qlty-action/coverage@v2
+        with:
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: coverage/lcov.info
+          total-parts-count: 6
